@@ -3,24 +3,24 @@ package com.deminmax;
 
 public class Line implements Comparable<Line>
 {
-    private String number;
-    private String name;
-    private String color;
+    private String numberLine;
+    private String nameLine;
+    private String colorLine;
 
     public Line(String  number, String name)
     {
-        this.number = number;
-        this.name = name;
+        this.numberLine = number;
+        this.nameLine = name;
     }
 
     public String getNumber()
     {
-        return number;
+        return numberLine;
     }
 
     public String getName()
     {
-        return name;
+        return nameLine;
     }
 
 
@@ -28,7 +28,7 @@ public class Line implements Comparable<Line>
     public int compareTo(Line l)
     {
 //        return this.number.compareTo(l.number) + this.name.toLowerCase().compareTo(l.name.toLowerCase());
-        return Integer.compare(Integer.parseInt(l.getNumber()), Integer.parseInt(this.number));
+        return Integer.compare(Integer.parseInt(l.getNumber()), Integer.parseInt(this.numberLine));
 
     }
 
@@ -36,7 +36,7 @@ public class Line implements Comparable<Line>
     public boolean equals(Object obj)
     {
         if (obj instanceof Line)
-            return this.name.toLowerCase().equals(((Line) obj).getName().toLowerCase()) && this.number.equals(((Line) obj).getNumber());
+            return this.nameLine.toLowerCase().equals(((Line) obj).getName().toLowerCase()) && this.numberLine.equals(((Line) obj).getNumber());
         return false;
 
     }
@@ -45,7 +45,7 @@ public class Line implements Comparable<Line>
     @Override
     public String toString()
     {
-        return name;
+        return nameLine;
     }
 
 }
