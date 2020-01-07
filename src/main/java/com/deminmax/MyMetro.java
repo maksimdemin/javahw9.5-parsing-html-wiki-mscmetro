@@ -49,6 +49,11 @@ public class MyMetro {
     }
 
 
+    public static void getQuantityStationsByLine(MyMetro myMetro) {
+        System.out.println("The quantity of stations on each line:");
+        myMetro.getStations().forEach((lineNumber, listStations) ->
+                System.out.printf("Line № %s has %d stations%n", lineNumber, listStations.size()));
+    }
 
 
 

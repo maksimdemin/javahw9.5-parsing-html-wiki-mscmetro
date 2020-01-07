@@ -20,17 +20,6 @@ public class Main {
         Path pathFromUser = JsonFile.pathFromUser();
 //        JsonFile.toJsonFile(myMetro, Path.of("myfiles/test.json"));
         JsonFile.toJsonFile(myMetro, pathFromUser);
-
-
-        myMetro.getStations().forEach((lineNumber, listStations) -> System.out.printf("Line № %s has %d stations%n", lineNumber, listStations.size()));
-
-
-
-
-//        Color c = Color.decode("#FFAAEE");
-//        System.out.println(c);
-//
-//        int i = 1;
-//        String o = Integer.toString(i);
+        MyMetro.getQuantityStationsByLine(myMetro);
     }
 }
