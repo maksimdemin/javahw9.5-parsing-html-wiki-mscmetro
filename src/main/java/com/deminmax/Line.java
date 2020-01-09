@@ -1,8 +1,9 @@
 package com.deminmax;
 
 
-public class Line implements Comparable<Line>
-{
+import java.util.Comparator;
+
+public class Line implements Comparable<Line> {
     private String numberLine;
     private String nameLine;
     private String colorLine;
@@ -13,39 +14,37 @@ public class Line implements Comparable<Line>
         this.nameLine = name;
     }
 
-    public String getNumber()
-    {
+    public String getNumber() {
         return numberLine;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return nameLine;
     }
 
 
     @Override
-    public int compareTo(Line l)
-    {
+    public int compareTo(Line l) {
 //        return this.number.compareTo(l.number) + this.name.toLowerCase().compareTo(l.name.toLowerCase());
-        return Integer.compare(Integer.parseInt(l.getNumber()), Integer.parseInt(this.numberLine));
-
+//        return Integer.compare(Integer.parseInt(l.getNumber()), Integer.parseInt(this.numberLine));
+        return this.numberLine.compareTo(l.getNumber()) + this.nameLine.toLowerCase().compareTo(l.nameLine.toLowerCase());
     }
 
     @Override
-    public boolean equals(Object obj)
-    {
+    public boolean equals(Object obj) {
         if (obj instanceof Line)
-            return this.nameLine.toLowerCase().equals(((Line) obj).getName().toLowerCase()) && this.numberLine.equals(((Line) obj).getNumber());
+            return this.numberLine.equals(((Line) obj).getNumber());
         return false;
-
     }
 
 
     @Override
-    public String toString()
-    {
-        return nameLine;
+    public String toString() {
+        return numberLine;
     }
 
+//    @Override
+//    public Comparator<Line> thenComparing(Comparator<? super Line> other) {
+//        return Comparator.comparing(Line::getNumber);
+//    }
 }

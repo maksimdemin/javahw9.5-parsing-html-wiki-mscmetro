@@ -1,15 +1,17 @@
 package com.deminmax;
 
+import java.util.Comparator;
+
 public class Station implements Comparable<Station> {
 
-    private String nameStation;
     private String numberLine;
+    private String nameStation;
 
 
-    public Station(String name, String line)
+    public Station(String line, String name)
     {
-        this.nameStation = name;
         this.numberLine = line;
+        this.nameStation = name;
     }
 
     public String  getLine()
@@ -23,34 +25,29 @@ public class Station implements Comparable<Station> {
     }
 
     @Override
-    public int compareTo(Station s)
-    {
-//        int lineComparison = line.compareTo(s.getLine());
-//        if(lineComparison != 0) {
-//            return lineComparison;
-//        }
-//        return name.compareToIgnoreCase(s.getName());
-//        return this.line.compareTo(s.line) + this.name.toLowerCase().compareTo(s.name.toLowerCase());
-        return Integer.compare(Integer.parseInt(s.getLine()), Integer.parseInt(this.numberLine));
-
-
+    public int compareTo(Station s) {
+        return this.numberLine.compareTo(s.getLine()) + this.nameStation.toLowerCase().compareTo(s.nameStation.toLowerCase());
     }
 
+
+//    @Override
+//    public int compare(Station o1, Station o2) {
+//        return o1.numberLine.compareTo(o2.getLine());
+//    }
+
     @Override
-    public boolean equals(Object obj)
-    {
+    public boolean equals(Object obj) {
         if (obj instanceof Station) {
-            return this.numberLine.equals(((Station) obj).getLine()) && this.nameStation.equals(((Station) obj).getNameStation());
+            return this.numberLine.equals(((Station) obj).getLine());
         }
         return false;
 
     }
 
-//    @Override
-//    public String toString()
-//    {
-//        return name;
-//    }
+    @Override
+    public String toString() {
+        return numberLine;
+    }
 
 }
 

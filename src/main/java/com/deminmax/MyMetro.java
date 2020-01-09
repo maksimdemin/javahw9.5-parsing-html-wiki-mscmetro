@@ -1,5 +1,4 @@
 package com.deminmax;
-
 import java.util.*;
 
 public class MyMetro {
@@ -7,26 +6,24 @@ public class MyMetro {
     List<Line> lines;
 //    TreeMap<Integer, ArrayList<Station>> stations;
     HashMap<String, ArrayList<String>> stations;
-//    TreeMap<Station, TreeSet<Station>> connections;
+//    TreeSet<TreeSet<Station>> connections;
+    List<ArrayList<Station>> connections;
 
-    public MyMetro()
-    {
+    public MyMetro() {
         lines = new ArrayList<>();
-        stations = new HashMap<>();
-//        connections = new TreeMap<>();
+        stations = new LinkedHashMap<>();
+        connections = new ArrayList<>();
     }
 
 
-    public void addStation(Station station)
-    {
+    public void addStation(Station station) {
         if (station != null) {
             stations.get(station.getLine()).add(station.getNameStation());
         }
     }
 
 
-    public void addLine(Line line)
-    {
+    public void addLine(Line line) {
         if (line != null) {
             lines.add(line);
             stations.put(line.getNumber(), new ArrayList<>());
@@ -34,8 +31,7 @@ public class MyMetro {
     }
 
 
-    public Line getLine(Line line)
-    {
+    public Line getLine(Line line) {
         for (Line currentLine : lines) {
             if (currentLine.equals(line))
                 return currentLine;
@@ -52,36 +48,17 @@ public class MyMetro {
     public static void getQuantityStationsByLine(MyMetro myMetro) {
         System.out.println("The quantity of stations on each line:");
         myMetro.getStations().forEach((lineNumber, listStations) ->
-                System.out.printf("Line № %s has %d stations%n", lineNumber, listStations.size()));
+                System.out.printf("Line № %3s  has %2d stations%n", lineNumber, listStations.size()));
     }
 
 
+    public void addConnection(ArrayList<Station> connection) {
+        connections.add(connection);
+    }
 
 
-
-
-
-//    public void addConnection(List<Station> stations)
-//    {
-//        for(Station station : stations)
-//        {
-//            if(!connections.containsKey(station)) {
-//                connections.put(station, new TreeSet<>());
-//            }
-//            TreeSet<Station> connectedStations = connections.get(station);
-//            connectedStations.addAll(stations.stream()
-//                    .filter(s -> !s.equals(station)).collect(Collectors.toList()));
-//        }
-//    }
-
-
-
-//    public Set<Station> getConnectedStations(Station station)
-//    {
-//        if(connections.containsKey(station)) {
-//            return connections.get(station);
-//        }
-//        return new TreeSet<>();
-//    }
+    public List<ArrayList<Station>> getConnectedStations() {
+        return connections;
+    }
 
 }

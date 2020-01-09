@@ -1,5 +1,4 @@
-import com.deminmax.JsonFile;
-import com.deminmax.Line;
+import com.deminmax.MetroJsonWriter;
 import com.deminmax.MyMetro;
 import com.deminmax.ParserHTML;
 import org.jsoup.select.Elements;
@@ -17,9 +16,9 @@ public class Main {
         ParserHTML parserHTML = new ParserHTML(URL_WIKI_MSCMETRO);
         Elements elements = parserHTML.parseHTMLFromURL();
         MyMetro myMetro = parserHTML.getMetro(elements);
-        Path pathFromUser = JsonFile.pathFromUser();
+        Path pathFromUser = MetroJsonWriter.pathFromUser();
 //        JsonFile.toJsonFile(myMetro, Path.of("myfiles/test.json"));
-        JsonFile.toJsonFile(myMetro, pathFromUser);
+        MetroJsonWriter.toJsonFile(myMetro, pathFromUser);
         MyMetro.getQuantityStationsByLine(myMetro);
     }
 }

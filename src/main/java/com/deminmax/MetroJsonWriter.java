@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
 
-public class JsonFile {
+public class MetroJsonWriter {
 
     public static void toJsonFile(MyMetro metro, Path pathForSave) throws IOException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
