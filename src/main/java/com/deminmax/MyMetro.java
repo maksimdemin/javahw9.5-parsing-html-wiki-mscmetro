@@ -4,14 +4,13 @@ import java.util.*;
 public class MyMetro {
 
     List<Line> lines;
-//    TreeMap<Integer, ArrayList<Station>> stations;
-    HashMap<String, ArrayList<String>> stations;
-//    TreeSet<TreeSet<Station>> connections;
+    TreeMap<String, ArrayList<String>> stations;
     List<ArrayList<Station>> connections;
+
 
     public MyMetro() {
         lines = new ArrayList<>();
-        stations = new LinkedHashMap<>();
+        stations = new TreeMap<>();
         connections = new ArrayList<>();
     }
 
@@ -40,7 +39,7 @@ public class MyMetro {
     }
 
 
-    public HashMap<String, ArrayList<String>> getStations() {
+    public TreeMap<String, ArrayList<String>> getStations() {
         return stations;
     }
 
@@ -60,5 +59,21 @@ public class MyMetro {
     public List<ArrayList<Station>> getConnectedStations() {
         return connections;
     }
+
+
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        MyMetro metro = (MyMetro) o;
+//        return Objects.equals(stations, metro.stations) &&
+//                Objects.equals(lines, metro.lines) &&
+//                Objects.equals(connections, metro.connections);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(stations, lines, connections);
+//    }
 
 }

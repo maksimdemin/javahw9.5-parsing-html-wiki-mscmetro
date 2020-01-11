@@ -2,8 +2,6 @@ import com.deminmax.MetroJsonWriter;
 import com.deminmax.MyMetro;
 import com.deminmax.ParserHTML;
 import org.jsoup.select.Elements;
-
-import java.awt.*;
 import java.io.IOException;
 import java.nio.file.Path;
 
