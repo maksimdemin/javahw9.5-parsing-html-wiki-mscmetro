@@ -6,8 +6,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-
 
 public class ParserHTML {
     private static String URL_CONTENT;
@@ -76,7 +74,8 @@ public class ParserHTML {
                         connections.add(baseStation);
                     }
                 }
-                Collections.sort(connections);
+                LineComparatorInConnections lineComparatorInColnnections = new LineComparatorInConnections();
+                connections.sort(lineComparatorInColnnections);
                     myMetro.addConnection(connections);
             }
         }

@@ -9,8 +9,9 @@ public class MyMetro {
 
 
     public MyMetro() {
+        LineComparator lineComparator = new LineComparator();
         lines = new ArrayList<>();
-        stations = new TreeMap<>();
+        stations = new TreeMap<>(lineComparator);
         connections = new ArrayList<>();
     }
 
